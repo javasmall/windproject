@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.bigsai.wind.dao.govMapper" >
+
+
+    <insert id="insertgov" parameterType="com.bigsai.wind.pojo.gov">
+        insert into gov (case_number,title,content,release_time,url,operation_time)
+         values(#{caseNumber},#{title},#{content},#{releaseTime},#{url},#{operationTime})
+
+    </insert>
+    <update id="updategov" parameterType="com.bigsai.wind.pojo.gov">
+        update gov
+        set case_number = #{caseNumber,jdbcType=VARCHAR},
+        title = #{title,jdbcType=VARCHAR},
+        content = #{content,jdbcType=VARCHAR},
+        release_time = #{releaseTime},
+        operation_time = #{operationTime}
+        where url = #{url}
+
+
+    </update>
+
+</mapper>
